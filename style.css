@@ -4,6 +4,7 @@ img {
 
 * {
     margin: 0;
+    background-size: cover;
 }
 
 body {
@@ -17,8 +18,10 @@ body {
 
 }
 
+******
 
-#start {
+/*UI-elementer*/
+****** #start {
     background-image: url(grafik/forside.svg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,17 +31,6 @@ body {
     display: none;
 }
 
-/*
-#settings {
-    background-image: url(grafik/settings.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 45vw;
-    width: 80vw;
-    margin: auto;
-    display: none;
-}
-*/
 
 #gameover {
     background-image: url(grafik/game_over.svg);
@@ -139,7 +131,761 @@ body {
     position: absolute;
 
     width: 20vw;
-    height: 10vw;
-    left: 34vw;
-    top: -1vw;
+    height: 9vw;
+    left: 35vw;
+    top: -1.3vw;
+}
+
+/*game-elementer*/
+.braendmand_right {
+    background-image: url("grafik/braendmand_right.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: 20vw;
+    top: 4vw;
+
+    animation-name: mymove18;
+    animation-duration: 3s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove18 {
+    0% {
+        right: 0px;
+    }
+
+    50% {}
+
+    100% {
+        left: 500px;
+    }
+
+
+}
+
+.braendmand_right2 {
+    background-image: url("grafik/braendmand_right.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: 8vw;
+    top: 30vw;
+
+    animation-name: mymove18;
+    animation-duration: 3s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove18 {
+    0% {
+        right: 0px;
+    }
+
+    50% {
+        bottom: 100px
+    }
+
+    100% {
+        left: 500px;
+    }
+
+
+}
+
+.braendmand_right3 {
+    background-image: url("grafik/braendmand_right.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: -2vw;
+    top: 3vw;
+
+    animation-name: mymove17;
+    animation-duration: 3s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove17 {
+    0% {
+        left: 400px;
+    }
+
+    100% {
+        left: 0px;
+    }
+
+}
+
+.braendmand_right4 {
+    background-image: url("grafik/braendmand_right.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: -14vw;
+    top: 20vw;
+
+    animation-name: mymove16;
+    animation-duration: 3s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove16 {
+    0% {
+        right: 0px;
+    }
+
+    25% {
+        left: 500px;
+    }
+
+}
+
+.braendmand_left {
+    background-image: url("grafik/braendmand_left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: 60vw;
+    top: 5vw;
+
+    animation-name: mymove15;
+    animation-duration: 3s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove15 {
+    0% {
+        left: 0px;
+    }
+
+    25% {
+        right: 800px;
+    }
+
+}
+
+.braendmand_left2 {
+    background-image: url("grafik/braendmand_left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: 40vw;
+    top: 14vw;
+
+    animation-name: mymove14;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove14 {
+    0% {
+        left: 0px;
+    }
+
+    25% {
+        right: 800px;
+    }
+
+}
+
+.braendmand_left3 {
+    background-image: url("grafik/braendmand_left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: 65vw;
+    top: 20vw;
+
+    animation-name: mymove13;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove13 {
+    0% {
+        right: 100px;
+    }
+
+    25% {
+        left: 800px;
+    }
+
+
+    100% {
+        bottom: 100px;
+    }
+}
+
+.braendmand_left4 {
+    background-image: url("grafik/braendmand_left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: 60vw;
+    top: 37vw;
+
+    animation-name: mymove12;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove12 {
+    0% {
+        right: 100px;
+    }
+
+    25% {
+        left: 200px;
+    }
+
+
+    100% {
+        bottom: 100px;
+    }
+}
+
+.tandboerste {
+    background-image: url("grafik/tandboerste.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 5vw;
+    height: 5vw;
+    left: 35vw;
+    top: 10vw;
+
+    animation-name: mymove11;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove11 {
+    0% {
+        right: 100px;
+    }
+
+    25% {
+        left: 200px;
+    }
+
+
+    100% {
+        bottom: 100px;
+    }
+}
+
+.bag_left {
+    background-image: url("grafik/bag_left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 10vw;
+    height: 12vw;
+    left: 5vw;
+    top: 10vw;
+
+    animation-name: mymove10;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove10 {
+    0% {
+        bottom: 0px;
+    }
+
+    25% {
+        left: 200px;
+    }
+
+
+    100% {
+        top: 0px;
+    }
+}
+
+.bag_left2 {
+    background-image: url("grafik/bag_left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 10vw;
+    height: 12vw;
+    left: 50vw;
+    top: 20vw;
+
+    animation-name: mymove9;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove9 {
+    0% {
+        top: 100px;
+    }
+
+    25% {
+        right: 200px;
+    }
+
+
+    100% {
+        bottom: 0px;
+    }
+}
+
+.bag_right {
+    background-image: url("grafik/bag_right.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 10vw;
+    height: 12vw;
+    left: 70vw;
+    top: 30vw;
+
+    animation-name: mymove8;
+    animation-duration: 8s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove8 {
+    0% {
+        bottom: 0px;
+    }
+
+
+    100% {
+        top: 0px;
+    }
+}
+
+.bubble_big {
+    background-image: url("grafik/bigbubble.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 8vw;
+    height: 8vw;
+    left: 20vw;
+    top: 30vw;
+
+    animation-name: mymove7;
+    animation-duration: 8s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove7 {
+    0% {
+        bottom: -100px;
+    }
+
+    25% {
+        top: 200px;
+    }
+
+
+    100% {
+        top: 0px;
+    }
+}
+
+.bubble_big2 {
+    background-image: url("grafik/bigbubble.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 8vw;
+    height: 8vw;
+    left: 10vw;
+    top: 20vw;
+
+    animation-name: mymove6;
+    animation-duration: 5s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove6 {
+    0% {
+        bottom: 0px;
+    }
+
+    25% {
+        bottom: 300px;
+    }
+
+
+    100% {
+        top: 800px;
+    }
+}
+
+.bubble_small {
+    background-image: url("grafik/smallbubble.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 4vw;
+    height: 4vw;
+    left: 50vw;
+    top: 40vw;
+
+    animation-name: mymove5;
+    animation-duration: 6s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove5 {
+    0% {
+        top: 0px;
+    }
+
+
+    100% {
+        bottom: 600px;
+    }
+}
+
+
+.bubble_small2 {
+    background-image: url("grafik/smallbubble.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 4vw;
+    height: 4vw;
+    left: 80vw;
+    top: 20vw;
+
+    animation-name: mymove4;
+    animation-duration: 6s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove4 {
+    0% {
+        bottom: 0px;
+    }
+
+    75% {
+        top: 500px;
+    }
+
+    100% {
+        top: 200px;
+    }
+}
+
+.flaske {
+    background-image: url("grafik/flaske.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 8vw;
+    height: 8vw;
+    left: 60vw;
+    top: 20vw;
+
+    animation-name: mymove3;
+    animation-duration: 6s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove3 {
+    0% {
+        right: 100px;
+    }
+
+    100% {
+        left: 500px;
+    }
+}
+
+.flaske2 {
+    background-image: url("grafik/flaske2.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 9vw;
+    height: 9vw;
+    left: -6vw;
+    top: 30vw;
+
+    animation-name: mymove2;
+    animation-duration: 6s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove2 {
+    0% {
+        right: 0px;
+    }
+
+    100% {
+        left: 500px;
+    }
+}
+
+.straw_right {
+    background-image: url("grafik/straw_right.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 8vw;
+    height: 8vw;
+    left: 60vw;
+    top: 30vw;
+
+    animation-name: mymove1;
+    animation-duration: 6s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove1 {
+    0% {
+        left: 0px;
+    }
+
+    25% {
+        right: 500px;
+    }
+
+    50% {
+        left: 500px;
+    }
+
+    75% {
+        right: 100px;
+    }
+
+    100% {
+        right: 0px;
+    }
+}
+
+.straw_left {
+    background-image: url("grafik/straw_left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 7vw;
+    height: 7vw;
+    left: 0vw;
+    top: 10vw;
+
+    animation-name: mymove1;
+    animation-duration: 7s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove {
+    0% {
+        left: 0px;
+    }
+
+    25% {
+        right: -200px;
+    }
+
+    50% {
+        left: 500px;
+    }
+
+    75% {
+        right: 500px;
+    }
+
+    100% {
+        right: 0px;
+    }
+}
+
+.strawyellow_left {
+    background-image: url("grafik/strawyellow_left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 8vw;
+    height: 8vw;
+    left: 6vw;
+    top: 10vw;
+
+    animation-name: mymove0;
+    animation-duration: 6s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes mymove0 {
+    0% {
+        left: 0px;
+    }
+
+    25% {
+        left: 400px;
+    }
+
+    50% {
+        left: 100px;
+    }
+
+    75% {
+        left: 200px;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+.strawyellow_right {
+    background-image: url("grafik/strawyellow_right.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 9vw;
+    height: 9vw;
+    left: 80vw;
+    top: 4vw;
+
+    animation-name: mymove;
+    animation-duration: 6s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+
+@keyframes mymove {
+    0% {
+        left: 500px;
+    }
+
+    25% {
+        right: 200px;
+    }
+
+    50% {
+        left: 100px;
+    }
+
+    75% {
+        right: 200px;
+    }
+
+    100% {
+        right: 0px;
+    }
+}
+
+
+/*startfarveskærm*/
+#start {
+    position: absolute;
+    background-color: skyblue;
+    top: 0;
+    left: -150px;
+    width: 100vw;
+    height: 56.25vw;
+
+}
+
+/*animation-fill-mode: both; betyder man får lov at se hvad den gør når den har kørt til sidst så den ikke går tilbage til udgangspunktet*/
+
+.fade_in {
+    animation-name: fade_in_kf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes fade_in_kf {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
