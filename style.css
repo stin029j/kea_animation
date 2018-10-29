@@ -1,0 +1,145 @@
+img {
+    width: 100%;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    background-image: url(grafik/baggrund.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 4vw;
+    width: 80vw;
+    margin: auto;
+    position: relative;
+
+}
+
+
+#start {
+    background-image: url(grafik/forside.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45vw;
+    width: 80vw;
+    margin: auto;
+    display: none;
+}
+
+/*
+#settings {
+    background-image: url(grafik/settings.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45vw;
+    width: 80vw;
+    margin: auto;
+    display: none;
+}
+*/
+
+#gameover {
+    background-image: url(grafik/game_over.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45vw;
+    width: 80vw;
+    margin: auto;
+    display: none;
+}
+
+#levelcomplete {
+    background-image: url(grafik/level_complete.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45vw;
+    width: 80vw;
+    margin: auto;
+    display: none;
+}
+
+#points {
+    background-image: url("grafik/point_knap.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 28vw;
+    height: 18vw;
+    left: 28vw;
+    top: 0vw;
+}
+
+#energy {
+    background-image: url("grafik/luft_knap.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 10vw;
+    left: -10vw;
+    top: -1vw;
+}
+
+#time {
+    background-image: url("grafik/tid_knap.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: -8vw;
+    top: 37vw;
+}
+
+#pause {
+    background-image: url("grafik/pause_knap.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 14vw;
+    height: 14vw;
+    right: -5vw;
+    top: 45vw;
+}
+
+#settings {
+    background-image: url("grafik/settings_knap.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 14vw;
+    height: 7vw;
+    right: -8vw;
+    top: -1vw;
+}
+
+#exit {
+    background-image: url("grafik/exit_knap.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 14vw;
+    height: 14vw;
+    right: -12vw;
+    top: 44vw;
+}
+
+#life {
+    background-image: url("grafik/liv_knap.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 10vw;
+    left: 34vw;
+    top: -1vw;
+}
