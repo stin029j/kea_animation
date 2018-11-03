@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="da">
+<!--<input type="checkbox" data-dinværdi="on">-->
 
 <head>
     <meta charset="utf-8">
@@ -12,29 +13,38 @@
 
     <div id="screens">
         <div id="game_elements">
-            <div id="danger" class="braendmand_left"></div>
-            <div id="danger" class="braendmand_left2"></div>
-            <div id="danger" class="braendmand_left3"></div>
-            <div id="danger" class="braendmand_left4"></div>
-            <div id="danger" class="braendmand_right"></div>
-            <div id="danger" class="braendmand_right2"></div>
-            <div id="danger" class="braendmand_right3"></div>
-            <div id="danger" class="braendmand_right4"></div>
 
-            <div id="plastik" class="tandboerste"></div>
-            <div id="plastik" class="bag_left"></div>
-            <div id="plastik" class="bag_left2"></div>
-            <div id="plastik" class="bag_right"></div>
-            <div id="plastik" class="bubble_big"></div>
-            <div id="plastik" class="bubble_big2"></div>
-            <div id="plastik" class="bubble_small"></div>
-            <div id="plastik" class="bubble_small2"></div>
-            <div id="plastik" class="flaske"></div>
-            <div id="plastik" class="flaske2"></div>
-            <div id="plastik" class="straw_right"></div>
-            <div id="plastik" class="straw_left"></div>
-            <div id="plastik" class="strawyellow_left"></div>
-            <div id="plastik" class="strawyellow_right"></div>
+
+
+
+            <div id="tandboerste" class="plastic1 plastic"></div>
+            <div id="tandboerste2" class="plastic2 plastic"></div>
+            <div id="bag_left" class="plastic3 plastic"></div>
+            <div id="bag_left2" class="plastic4 plastic"></div>
+            <div id="bag_right" class="plastic5 plastic"></div>
+            <div id="bubble_big" class="plastic6 plastic"></div>
+            <div id="bubble_big2" class="plastic7 plastic"></div>
+            <div id="bubble_small" class="plastic8 plastic"></div>
+            <div id="bubble_small2" class="plastic9 plastic"></div>
+            <div id="flaske" class="plastic10 plastic"></div>
+            <div id="flaske2" class="plastic11 plastic"></div>
+            <div id="straw_left" class="plastic12 plastic"></div>
+            <div id="strawyellow_left" class="plastic13 plastic"></div>
+            <div id="strawyellow_right" class="plastic14 plastic"></div>
+
+            <div id="brandmand_left1" class="flyt_left1 brandmand"></div>
+            <div id="brandmand_left2" class="flyt_left2 brandmand"></div>
+            <div id="brandmand_left3" class="flyt_left3 brandmand"></div>
+            <div id="brandmand_left4" class="flyt_left4 brandmand"></div>
+            <div id="brandmand_left5" class="flyt_left5 brandmand"></div>
+            <div id="brandmand_left6" class="flyt_left6 brandmand"></div>
+
+            <div id="brandmand_right1" class="flyt_right1 brandmand"></div>
+            <div id="brandmand_right2" class="flyt_right2 brandmand"></div>
+            <div id="brandmand_right3" class="flyt_right3 brandmand"></div>
+            <div id="brandmand_right4" class="flyt_right4 brandmand"></div>
+            <div id="brandmand_right5" class="flyt_right5 brandmand"></div>
+            <div id="brandmand_right6" class="flyt_right6 brandmand"></div>
         </div>
 
 
@@ -42,18 +52,28 @@
             <div id="points"></div>
             <div id="energy"></div>
             <div id="time"></div>
-            <div id="pause"></div>
-            <div id="settings"></div>
             <div id="exit"></div>
             <div id="life"></div>
+            <div id="settings" class="hide"></div>
+
+            <div id="music_turnoff_knap" class="hide"></div>
+            <div id="musik_turnon_knap" class="hide"></div>
+            <div id="sfx_turnoff_knap" class="hide"></div>
+            <div id="sfx_turnon_knap" class="hide"></div>
+
+            <div id="back" class="hide">gå tilbage</div>
+
         </div>
 
-        <div id="settings"></div>
-        <div id="gameover"></div>
-        <div id="levelcomplete"></div>
-        <div id="start" class="fade_in"></div>
-    </div>
+        <div id="start" class="hide"></div>
+        <div id="play_button" class="hide"></div>
 
+        <div id="gameover" class="hide"></div>
+        <div id="levelcomplete" class="hide"></div>
+        <div id="settings_button"></div>
+        <div id="score"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>

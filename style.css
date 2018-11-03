@@ -2,35 +2,97 @@ img {
     width: 100%;
 }
 
-* {
+body {
     margin: 0;
-    background-size: cover;
 }
 
-body {
+#screens {
     background-image: url(grafik/baggrund.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 4vw;
-    width: 80vw;
-    margin: auto;
+    width: 100vw;
+    height: 56.25vw;
+
     position: relative;
 
+    /*  touch-action: none;*/
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
-******
+/* effekter */
+.hide {
+    visibility: hidden;
+}
 
-/*UI-elementer*/
-****** #start {
-    background-image: url(grafik/forside.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 45vw;
-    width: 80vw;
-    margin: auto;
+.show {
+    visibility: visible;
+}
+
+.blur {
+    filter: blur(5px) brightness(80%);
+}
+
+.fade_out {
+    animation-name: fadeout_kf;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeout_kf {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.pulse {
+    animation-name: pulse_kf;
+    animation-duration: 1.7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
+}
+
+/*
+.pulse1 {
+    animation-name: pulse_kf;
+    animation-duration: 0.5;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
+}
+*/
+
+@keyframes pulse_kf {
+    0% {
+        transform: scale(0.85);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.hide {
     display: none;
 }
 
+
+#score {
+    position: absolute;
+    left: 43vw;
+    top: 5vw;
+
+    font-size: 2rem;
+    font-family: monospace;
+}
 
 #gameover {
     background-image: url(grafik/game_over.svg);
@@ -52,15 +114,18 @@ body {
     display: none;
 }
 
+/*UI-elementer*/
 #points {
     background-image: url("grafik/point_knap.svg");
     background-repeat: no-repeat;
     background-size: 100%;
     position: absolute;
 
+    pointer-events: none;
+
     width: 28vw;
     height: 18vw;
-    left: 28vw;
+    left: 34vw;
     top: 0vw;
 }
 
@@ -70,10 +135,12 @@ body {
     background-size: 100%;
     position: absolute;
 
+    pointer-events: none;
+
     width: 20vw;
     height: 10vw;
-    left: -10vw;
-    top: -1vw;
+    left: 1vw;
+    top: 0.3vw;
 }
 
 #time {
@@ -82,34 +149,36 @@ body {
     background-size: 100%;
     position: absolute;
 
-    width: 20vw;
-    height: 20vw;
-    left: -8vw;
-    top: 37vw;
-}
+    pointer-events: none;
 
-#pause {
-    background-image: url("grafik/pause_knap.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-
-    width: 14vw;
-    height: 14vw;
-    right: -5vw;
+    width: 10vw;
+    height: 12vw;
+    left: 2vw;
     top: 45vw;
 }
 
+
 #settings {
-    background-image: url("grafik/settings_knap.svg");
+
+    background-image: url(grafik/indstillinger.svg);
     background-repeat: no-repeat;
     background-size: 100%;
-    position: absolute;
+    height: 56.25vw;
+    width: 100vw;
+    z-index: 3;
 
-    width: 14vw;
-    height: 7vw;
-    right: -8vw;
-    top: -1vw;
+    top: 0vw;
+    left: 0vw;
+
+    position: absolute;
+}
+
+#settings:hover {
+    cursor: grab;
+}
+
+#settings:active {
+    cursor: grabbing;
 }
 
 #exit {
@@ -118,11 +187,20 @@ body {
     background-size: 100%;
     position: absolute;
 
-    width: 14vw;
-    height: 14vw;
-    right: -12vw;
-    top: 44vw;
+    width: 11vw;
+    height: 11vw;
+    left: 85vw;
+    top: 45.7vw;
 }
+
+#exit:hover {
+    cursor: grab;
+}
+
+#exit:active {
+    cursor: grabbing;
+}
+
 
 #life {
     background-image: url("grafik/liv_knap.svg");
@@ -130,14 +208,16 @@ body {
     background-size: 100%;
     position: absolute;
 
-    width: 20vw;
+    pointer-events: none;
+
+    width: 19vw;
     height: 9vw;
-    left: 35vw;
-    top: -1.3vw;
+    left: 42vw;
+    top: 0.7vw;
 }
 
 /*game-elementer*/
-.braendmand_right {
+#brandmand_right1 {
     background-image: url("grafik/braendmand_right.svg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -145,31 +225,33 @@ body {
 
     width: 20vw;
     height: 20vw;
-    left: 20vw;
+    left: -18vw;
     top: 4vw;
-
-    animation-name: mymove18;
-    animation-duration: 3s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
 }
 
-@keyframes mymove18 {
-    0% {
-        right: 0px;
-    }
+.flyt_right1 {
+    animation-name: mymove_rightfirst;
+    animation-duration: 9.5s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
 
-    50% {}
+
+@keyframes mymove_rightfirst {
+    0% {
+        right: 0;
+    }
 
     100% {
-        left: 500px;
+        left: 120vw;
     }
 
 
 }
 
-.braendmand_right2 {
+
+#brandmand_right2 {
     background-image: url("grafik/braendmand_right.svg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -177,33 +259,32 @@ body {
 
     width: 20vw;
     height: 20vw;
-    left: 8vw;
+    left: -65vw;
     top: 30vw;
-
-    animation-name: mymove18;
-    animation-duration: 3s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
 }
 
-@keyframes mymove18 {
-    0% {
-        right: 0px;
-    }
+.flyt_right2 {
+    animation-name: mymove_right2;
+    animation-duration: 13s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
 
-    50% {
-        bottom: 100px
+@keyframes mymove_right2 {
+    0% {
+        right: 0;
     }
 
     100% {
-        left: 500px;
+        left: 120vw;
     }
 
 
 }
 
-.braendmand_right3 {
+
+#brandmand_right3 {
     background-image: url("grafik/braendmand_right.svg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -211,28 +292,32 @@ body {
 
     width: 20vw;
     height: 20vw;
-    left: -2vw;
-    top: 3vw;
+    left: -88vw;
+    top: 15vw;
 
-    animation-name: mymove17;
-    animation-duration: 3s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
 }
 
-@keyframes mymove17 {
+
+.flyt_right3 {
+    animation-name: mymove_right3;
+    animation-duration: 11s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_right3 {
     0% {
-        left: 400px;
+        right: 0;
     }
 
     100% {
-        left: 0px;
+        left: 120vw;
     }
 
 }
 
-.braendmand_right4 {
+#brandmand_right4 {
     background-image: url("grafik/braendmand_right.svg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -240,28 +325,92 @@ body {
 
     width: 20vw;
     height: 20vw;
-    left: -14vw;
+    left: -28vw;
     top: 20vw;
+}
 
-    animation-name: mymove16;
-    animation-duration: 3s;
+.flyt_right4 {
+    animation-name: mymove_right4;
+    animation-duration: 8.5s;
     animation-iteration-count: 100;
-    animation-direction: alternate;
     animation-fill-mode: both;
+    animation-timing-function: linear;
 }
 
-@keyframes mymove16 {
+@keyframes mymove_right4 {
     0% {
-        right: 0px;
+        right: 0;
     }
 
-    25% {
-        left: 500px;
+    100% {
+        left: 120vw;
     }
 
 }
 
-.braendmand_left {
+#brandmand_right5 {
+    background-image: url("grafik/braendmand_right.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: -128vw;
+    top: 20vw;
+}
+
+.flyt_right5 {
+    animation-name: mymove_right5;
+    animation-duration: 12s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_right5 {
+    0% {
+        right: 0;
+    }
+
+    100% {
+        left: 120vw;
+    }
+
+}
+
+#brandmand_right6 {
+    background-image: url("grafik/braendmand_right.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: -148vw;
+    top: 11vw;
+}
+
+.flyt_right6 {
+    animation-name: mymove_right6;
+    animation-duration: 10s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_right6 {
+    0% {
+        right: 0;
+    }
+
+    100% {
+        left: 120vw;
+    }
+
+}
+
+#brandmand_left1 {
     background-image: url("grafik/braendmand_left.svg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -269,28 +418,31 @@ body {
 
     width: 20vw;
     height: 20vw;
-    left: 60vw;
+    left: 130vw;
     top: 5vw;
 
-    animation-name: mymove15;
-    animation-duration: 3s;
+}
+
+.flyt_left1 {
+    animation-name: mymove_leftfirst;
+    animation-duration: 8.5s;
     animation-iteration-count: 100;
-    animation-direction: alternate;
     animation-fill-mode: both;
+    animation-timing-function: linear;
 }
 
-@keyframes mymove15 {
+@keyframes mymove_leftfirst {
     0% {
-        left: 0px;
+        right: 0vw;
     }
 
-    25% {
-        right: 800px;
+    100% {
+        left: -30vw;
     }
 
 }
 
-.braendmand_left2 {
+#brandmand_left2 {
     background-image: url("grafik/braendmand_left.svg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -298,28 +450,32 @@ body {
 
     width: 20vw;
     height: 20vw;
-    left: 40vw;
+    left: 120vw;
     top: 14vw;
 
-    animation-name: mymove14;
-    animation-duration: 5s;
+}
+
+.flyt_left2 {
+    animation-name: mymove_left2;
+    animation-duration: 9.5s;
     animation-iteration-count: 100;
-    animation-direction: alternate;
     animation-fill-mode: both;
+    animation-timing-function: linear;
 }
 
-@keyframes mymove14 {
+@keyframes mymove_left2 {
     0% {
-        left: 0px;
+        right: 0vw;
     }
 
-    25% {
-        right: 800px;
+    100% {
+        left: -30vw;
     }
+
 
 }
 
-.braendmand_left3 {
+#brandmand_left3 {
     background-image: url("grafik/braendmand_left.svg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -327,32 +483,32 @@ body {
 
     width: 20vw;
     height: 20vw;
-    left: 65vw;
+    left: 140vw;
     top: 20vw;
 
-    animation-name: mymove13;
-    animation-duration: 5s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
 }
 
-@keyframes mymove13 {
+.flyt_left3 {
+    animation-name: mymove_left3;
+    animation-duration: 13s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_left3 {
     0% {
-        right: 100px;
+        right: 0vw;
     }
-
-    25% {
-        left: 800px;
-    }
-
 
     100% {
-        bottom: 100px;
+        left: -30vw;
     }
+
+
 }
 
-.braendmand_left4 {
+#brandmand_left4 {
     background-image: url("grafik/braendmand_left.svg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -360,532 +516,692 @@ body {
 
     width: 20vw;
     height: 20vw;
-    left: 60vw;
-    top: 37vw;
+    left: 110vw;
+    top: 29vw;
 
-    animation-name: mymove12;
-    animation-duration: 5s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
 }
 
-@keyframes mymove12 {
+.flyt_left4 {
+    animation-name: mymove_left4;
+    animation-duration: 6s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_left4 {
     0% {
-        right: 100px;
+        right: 0vw;
     }
-
-    25% {
-        left: 200px;
-    }
-
 
     100% {
-        bottom: 100px;
+        left: -30vw;
     }
+
+
 }
 
-.tandboerste {
+#brandmand_left5 {
+    background-image: url("grafik/braendmand_left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: 140vw;
+    top: 20vw;
+
+}
+
+.flyt_left5 {
+    animation-name: mymove_left5;
+    animation-duration: 9s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_left5 {
+    0% {
+        right: 0vw;
+    }
+
+    100% {
+        left: -30vw;
+    }
+
+
+}
+
+#brandmand_left6 {
+    background-image: url("grafik/braendmand_left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 20vw;
+    height: 20vw;
+    left: 140vw;
+    top: 25vw;
+
+}
+
+.flyt_left6 {
+    animation-name: mymove_left6;
+    animation-duration: 12s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_left6 {
+    0% {
+        right: 0vw;
+    }
+
+    100% {
+        left: -30vw;
+    }
+
+
+}
+
+#tandboerste {
     background-image: url("grafik/tandboerste.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-
-    width: 5vw;
-    height: 5vw;
-    left: 35vw;
-    top: 10vw;
-
-    animation-name: mymove11;
-    animation-duration: 5s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-}
-
-@keyframes mymove11 {
-    0% {
-        right: 100px;
-    }
-
-    25% {
-        left: 200px;
-    }
-
-
-    100% {
-        bottom: 100px;
-    }
-}
-
-.bag_left {
-    background-image: url("grafik/bag_left.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-
-    width: 10vw;
-    height: 12vw;
-    left: 5vw;
-    top: 10vw;
-
-    animation-name: mymove10;
-    animation-duration: 5s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-}
-
-@keyframes mymove10 {
-    0% {
-        bottom: 0px;
-    }
-
-    25% {
-        left: 200px;
-    }
-
-
-    100% {
-        top: 0px;
-    }
-}
-
-.bag_left2 {
-    background-image: url("grafik/bag_left.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-
-    width: 10vw;
-    height: 12vw;
-    left: 50vw;
-    top: 20vw;
-
-    animation-name: mymove9;
-    animation-duration: 5s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-}
-
-@keyframes mymove9 {
-    0% {
-        top: 100px;
-    }
-
-    25% {
-        right: 200px;
-    }
-
-
-    100% {
-        bottom: 0px;
-    }
-}
-
-.bag_right {
-    background-image: url("grafik/bag_right.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-
-    width: 10vw;
-    height: 12vw;
-    left: 70vw;
-    top: 30vw;
-
-    animation-name: mymove8;
-    animation-duration: 8s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-}
-
-@keyframes mymove8 {
-    0% {
-        bottom: 0px;
-    }
-
-
-    100% {
-        top: 0px;
-    }
-}
-
-.bubble_big {
-    background-image: url("grafik/bigbubble.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-
-    width: 8vw;
-    height: 8vw;
-    left: 20vw;
-    top: 30vw;
-
-    animation-name: mymove7;
-    animation-duration: 8s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-}
-
-@keyframes mymove7 {
-    0% {
-        bottom: -100px;
-    }
-
-    25% {
-        top: 200px;
-    }
-
-
-    100% {
-        top: 0px;
-    }
-}
-
-.bubble_big2 {
-    background-image: url("grafik/bigbubble.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-
-    width: 8vw;
-    height: 8vw;
-    left: 10vw;
-    top: 20vw;
-
-    animation-name: mymove6;
-    animation-duration: 5s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-}
-
-@keyframes mymove6 {
-    0% {
-        bottom: 0px;
-    }
-
-    25% {
-        bottom: 300px;
-    }
-
-
-    100% {
-        top: 800px;
-    }
-}
-
-.bubble_small {
-    background-image: url("grafik/smallbubble.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-
-    width: 4vw;
-    height: 4vw;
-    left: 50vw;
-    top: 40vw;
-
-    animation-name: mymove5;
-    animation-duration: 6s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-}
-
-@keyframes mymove5 {
-    0% {
-        top: 0px;
-    }
-
-
-    100% {
-        bottom: 600px;
-    }
-}
-
-
-.bubble_small2 {
-    background-image: url("grafik/smallbubble.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-
-    width: 4vw;
-    height: 4vw;
-    left: 80vw;
-    top: 20vw;
-
-    animation-name: mymove4;
-    animation-duration: 6s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-}
-
-@keyframes mymove4 {
-    0% {
-        bottom: 0px;
-    }
-
-    75% {
-        top: 500px;
-    }
-
-    100% {
-        top: 200px;
-    }
-}
-
-.flaske {
-    background-image: url("grafik/flaske.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-
-    width: 8vw;
-    height: 8vw;
-    left: 60vw;
-    top: 20vw;
-
-    animation-name: mymove3;
-    animation-duration: 6s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-}
-
-@keyframes mymove3 {
-    0% {
-        right: 100px;
-    }
-
-    100% {
-        left: 500px;
-    }
-}
-
-.flaske2 {
-    background-image: url("grafik/flaske2.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-
-    width: 9vw;
-    height: 9vw;
-    left: -6vw;
-    top: 30vw;
-
-    animation-name: mymove2;
-    animation-duration: 6s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-}
-
-@keyframes mymove2 {
-    0% {
-        right: 0px;
-    }
-
-    100% {
-        left: 500px;
-    }
-}
-
-.straw_right {
-    background-image: url("grafik/straw_right.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-
-    width: 8vw;
-    height: 8vw;
-    left: 60vw;
-    top: 30vw;
-
-    animation-name: mymove1;
-    animation-duration: 6s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-}
-
-@keyframes mymove1 {
-    0% {
-        left: 0px;
-    }
-
-    25% {
-        right: 500px;
-    }
-
-    50% {
-        left: 500px;
-    }
-
-    75% {
-        right: 100px;
-    }
-
-    100% {
-        right: 0px;
-    }
-}
-
-.straw_left {
-    background-image: url("grafik/straw_left.svg");
     background-repeat: no-repeat;
     background-size: 100%;
     position: absolute;
 
     width: 7vw;
     height: 7vw;
-    left: 0vw;
+    left: 100vw;
     top: 10vw;
 
-    animation-name: mymove1;
-    animation-duration: 7s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
 }
 
-@keyframes mymove {
+.plastic1 {
+    animation-name: mymove_plastic1;
+    animation-duration: 10s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_plastic1 {
     0% {
-        left: 0px;
-    }
-
-    25% {
-        right: -200px;
-    }
-
-    50% {
-        left: 500px;
-    }
-
-    75% {
-        right: 500px;
+        right: 0vw;
     }
 
     100% {
-        right: 0px;
+        left: -30vw;
     }
+
+
 }
 
-.strawyellow_left {
-    background-image: url("grafik/strawyellow_left.svg");
+#tandboerste2 {
+    background-image: url("grafik/tandboerste.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 7vw;
+    height: 7vw;
+    left: -20vw;
+    top: 30vw;
+
+}
+
+.plastic2 {
+    animation-name: mymove_plastic2;
+    animation-duration: 8s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_plastic2 {
+    0% {
+        right: 0;
+    }
+
+    100% {
+        left: 120vw;
+    }
+
+}
+
+#bag_left {
+    background-image: url("grafik/bag_left.svg");
     background-repeat: no-repeat;
     background-size: 100%;
     position: absolute;
 
     width: 8vw;
-    height: 8vw;
-    left: 6vw;
-    top: 10vw;
+    height: 12vw;
+    left: 5vw;
+    top: 40vw;
 
-    animation-name: mymove0;
-    animation-duration: 6s;
-    animation-iteration-count: 100;
-    animation-direction: alternate;
-    animation-fill-mode: both;
 }
 
-@keyframes mymove0 {
+.plastic3 {
+    animation-name: mymove_plastic3;
+    animation-duration: 10s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_plastic3 {
     0% {
-        left: 0px;
+        bottom: 0px;
     }
 
     25% {
-        left: 400px;
+        left: 300px;
     }
 
-    50% {
-        left: 100px;
-    }
-
-    75% {
-        left: 200px;
-    }
 
     100% {
-        left: 0px;
+        top: -200px;
     }
 }
 
-.strawyellow_right {
+#bag_left2 {
+    background-image: url("grafik/bag_left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 8vw;
+    height: 12vw;
+    left: 100vw;
+    top: 30vw;
+
+}
+
+.plastic4 {
+    animation-name: mymove_plastic4;
+    animation-duration: 13s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_plastic4 {
+    0% {
+        bottom: 0px;
+    }
+
+    25% {
+        left: 1000px;
+    }
+
+    75% {
+        right: 100px;
+    }
+
+
+    100% {
+        top: -200px;
+    }
+}
+
+
+#bag_right {
+    background-image: url("grafik/bag_right.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 8vw;
+    height: 12vw;
+    left: 100vw;
+    top: 30vw;
+
+}
+
+.plastic5 {
+    animation-name: mymove_plastic5;
+    animation-duration: 14s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_plastic5 {
+    0% {
+        right: 0;
+    }
+
+    100% {
+        left: -100vw;
+    }
+
+
+}
+
+#bubble_big {
+    background-image: url("grafik/bigbubble.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 6vw;
+    height: 6vw;
+    left: 20vw;
+    top: 46vw;
+
+}
+
+.plastic6 {
+    animation-name: mymove_plastic6;
+    animation-duration: 9s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+
+}
+
+@keyframes mymove_plastic6 {
+    0% {
+        bottom: 0px;
+    }
+
+
+    100% {
+        top: -200px;
+    }
+}
+
+#bubble_big2 {
+    background-image: url("grafik/bigbubble.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 6vw;
+    height: 6vw;
+    left: 60vw;
+    top: 43vw;
+
+}
+
+.plastic7 {
+    animation-name: mymove_plastic7;
+    animation-duration: 8.5s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+
+}
+
+@keyframes mymove_plastic7 {
+    0% {
+        bottom: 0px;
+    }
+
+
+    100% {
+        top: -200px;
+    }
+}
+
+
+#bubble_small {
+    background-image: url("grafik/smallbubble.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 4vw;
+    height: 4vw;
+    left: 52vw;
+    top: 45vw;
+
+}
+
+.plastic8 {
+    animation-name: mymove_plastic8;
+    animation-duration: 7.5s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+
+}
+
+@keyframes mymove_plastic8 {
+    0% {
+        bottom: 0px;
+    }
+
+
+    100% {
+        top: -200px;
+    }
+}
+
+#bubble_small2 {
+    background-image: url("grafik/smallbubble.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 4vw;
+    height: 4vw;
+    left: 80vw;
+    top: 46vw;
+
+}
+
+.plastic9 {
+    animation-name: mymove_plastic9;
+    animation-duration: 8s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+
+}
+
+@keyframes mymove_plastic9 {
+    0% {
+        bottom: 0px;
+    }
+
+
+    100% {
+        top: -200px;
+    }
+}
+
+#flaske {
+    background-image: url("grafik/flaske.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 6vw;
+    height: 9vw;
+    left: -20vw;
+    top: 20vw;
+
+}
+
+.plastic10 {
+    animation-name: mymove_plastic10;
+    animation-duration: 12s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_plastic10 {
+    0% {
+        right: 0;
+    }
+
+    25% {
+        top: -28px;
+    }
+
+    100% {
+        left: 120vw;
+    }
+
+}
+
+#flaske2 {
+    background-image: url("grafik/flaske2.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 11vw;
+    height: 11vw;
+    left: -80vw;
+    top: 30vw;
+
+}
+
+.plastic11 {
+    animation-name: mymove_plastic11;
+    animation-duration: 11s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_plastic11 {
+    0% {
+        right: 0;
+    }
+
+
+
+    100% {
+        left: 120vw;
+    }
+
+}
+
+
+#straw_left {
+    background-image: url("grafik/straw_right.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 7vw;
+    height: 7vw;
+    left: -50vw;
+    top: 30vw;
+
+}
+
+.plastic12 {
+    animation-name: mymove_plastic12;
+    animation-duration: 14s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_plastic12 {
+    0% {
+        right: 20vw;
+    }
+
+    25% {
+        top: -10vw;
+    }
+
+
+    100% {
+        left: 100vw;
+    }
+
+}
+
+#strawyellow_left {
+    background-image: url("grafik/strawyellow_left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 7vw;
+    height: 7vw;
+    left: -20vw;
+    top: 50vw;
+
+}
+
+
+.plastic13 {
+    animation-name: mymove_plastic13;
+    animation-duration: 10s;
+    animation-iteration-count: 100;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove_plastic13 {
+    0% {
+        right: 20vw;
+    }
+
+    25% {
+        top: -10vw;
+    }
+
+
+    100% {
+        left: 100vw;
+    }
+
+}
+
+
+#strawyellow_right {
     background-image: url("grafik/strawyellow_right.svg");
     background-repeat: no-repeat;
     background-size: 100%;
     position: absolute;
 
-    width: 9vw;
-    height: 9vw;
-    left: 80vw;
-    top: 4vw;
+    width: 7vw;
+    height: 7vw;
+    left: 120vw;
+    top: 10vw;
 
-    animation-name: mymove;
-    animation-duration: 6s;
+}
+
+.plastic14 {
+    animation-name: mymove_plastic14;
+    animation-duration: 10s;
     animation-iteration-count: 100;
-    animation-direction: alternate;
     animation-fill-mode: both;
+    animation-timing-function: linear;
 }
 
 
-@keyframes mymove {
+@keyframes mymove_plastic14 {
     0% {
-        left: 500px;
-    }
-
-    25% {
-        right: 200px;
-    }
-
-    50% {
-        left: 100px;
-    }
-
-    75% {
-        right: 200px;
+        right: 0vw;
     }
 
     100% {
-        right: 0px;
+        left: -30vw;
     }
+
+
 }
 
+#settings_button {
+    background-image: url("grafik/settings_knap.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    width: 14vw;
+    height: 7vw;
+    right: 0vw;
+    top: 0vw;
+}
+
+#sfx_turnon_knap {
+    background-image: url(grafik/sfx_turnon_knap.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 12vw;
+    height: 6vw;
+    position: absolute;
+    bottom: 23vw;
+    left: 40vw;
+    z-index: 8;
+}
+
+#sfx_turnoff_knap {
+    background-image: url(grafik/sfx_turnoff_knap.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 16vw;
+    height: 100px;
+    position: absolute;
+    bottom: 23.08vw;
+    left: 38vw;
+    z-index: 9;
+}
+
+#musik_turnon_knap {
+    background-image: url(grafik/musik_turnon_knap.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 11vw;
+    height: 100px;
+    position: absolute;
+    bottom: 29vw;
+    left: 40vw;
+    z-index: 8;
+}
+
+#music_turnoff_knap {
+    background-image: url(grafik/music_turnoff_knap.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 14vw;
+    height: 100px;
+    position: absolute;
+    bottom: 29.85vw;
+    left: 38.3vw;
+    z-index: 9;
+}
+
+#back {
+    font-family: 'Helvetica', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 200px;
+    left: 625px;
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.43);
+    z-index: 9;
+}
+
+#luk {
+    background-image: url(grafik/lukke%20knap.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 6vw;
+    height: 5vw;
+    position: absolute;
+    bottom: 34.7vw;
+    left: 26.7vw;
+    z-index: 8;
+}
 
 /*startfarveskærm*/
 #start {
-    position: absolute;
-    background-color: skyblue;
-    top: 0;
-    left: -150px;
+    background-image: url(grafik/forside.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 100vw;
     width: 100vw;
-    height: 56.25vw;
+
+    position: absolute;
+    top: 0;
+    left: 0;
 
 }
 
-/*animation-fill-mode: both; betyder man får lov at se hvad den gør når den har kørt til sidst så den ikke går tilbage til udgangspunktet*/
+#play_button {
+    position: absolute;
+    width: 25vw;
+    height: 15vw;
+    background-image: url(grafik/play_knap.svg);
+    background-size: 100%;
+    left: 38vw;
+    top: 41vw;
 
-.fade_in {
-    animation-name: fade_in_kf;
-    animation-duration: 5s;
-    animation-iteration-count: 1;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-}
-
-@keyframes fade_in_kf {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
+    cursor: pointer;
 }
