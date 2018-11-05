@@ -51,6 +51,24 @@ body {
     }
 }
 
+.dissappear {
+    animation-name: dissappear_kf;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.59, -0.56, .77, 1.34);
+    animation-fill-mode: forwards;
+}
+
+@keyframes dissappear_kf {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+    }
+}
+
 .pulse {
     animation-name: pulse_kf;
     animation-duration: 1.7s;
@@ -98,21 +116,24 @@ body {
     background-image: url(grafik/game_over.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 45vw;
-    width: 80vw;
+    height: 56.25vw;
+    width: 100vw;
     margin: auto;
-    display: none;
+
 }
 
 #levelcomplete {
     background-image: url(grafik/level_complete.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 45vw;
-    width: 80vw;
+    height: 56.25vw;
+    width: 100vw;
     margin: auto;
-    display: none;
+
 }
+
+
+*/
 
 /*UI-elementer*/
 #points {
@@ -129,7 +150,7 @@ body {
     top: 0vw;
 }
 
-#energy {
+#air {
     background-image: url("grafik/luft_knap.svg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -139,8 +160,48 @@ body {
 
     width: 20vw;
     height: 10vw;
-    left: 1vw;
+    left: 42vw;
     top: 0.3vw;
+}
+
+#energy {
+
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    pointer-events: none;
+
+    width: 20vw;
+    height: 10vw;
+    left: 1vw;
+    top: 1.3vw;
+
+}
+
+.heart {
+    width: 4.5vw;
+    height: 3.96vw;
+    background-image: url(grafik/heart.svg);
+    background-size: 100%;
+    margin-right: 0.9vw;
+
+}
+
+#life {
+    background-image: url("grafik/liv_knap.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+
+    pointer-events: none;
+
+    width: 20vw;
+    height: 10vw;
+    left: -7vw;
+    top: 4.8vw;
+
+    transform: rotateZ(90deg);
 }
 
 #time {
@@ -202,19 +263,7 @@ body {
 }
 
 
-#life {
-    background-image: url("grafik/liv_knap.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
 
-    pointer-events: none;
-
-    width: 19vw;
-    height: 9vw;
-    left: 42vw;
-    top: 0.7vw;
-}
 
 /*game-elementer*/
 #brandmand_right1 {
@@ -416,6 +465,7 @@ body {
     background-size: 100%;
     position: absolute;
 
+
     width: 20vw;
     height: 20vw;
     left: 130vw;
@@ -613,8 +663,8 @@ body {
     background-size: 100%;
     position: absolute;
 
-    width: 7vw;
-    height: 7vw;
+    width: 8vw;
+    height: 8vw;
     left: 100vw;
     top: 10vw;
 
@@ -622,7 +672,7 @@ body {
 
 .plastic1 {
     animation-name: mymove_plastic1;
-    animation-duration: 10s;
+    animation-duration: 8s;
     animation-iteration-count: 100;
     animation-fill-mode: both;
     animation-timing-function: linear;
@@ -646,8 +696,8 @@ body {
     background-size: 100%;
     position: absolute;
 
-    width: 7vw;
-    height: 7vw;
+    width: 8vw;
+    height: 8vw;
     left: -20vw;
     top: 30vw;
 
@@ -962,7 +1012,7 @@ body {
 
 .plastic11 {
     animation-name: mymove_plastic11;
-    animation-duration: 11s;
+    animation-duration: 9s;
     animation-iteration-count: 100;
     animation-fill-mode: both;
     animation-timing-function: linear;
@@ -1153,7 +1203,11 @@ body {
 }
 
 #back {
-    font-family: 'Helvetica', sans-serif;
+    font-family: monospace;
+    font-size: 1.7vw;
+
+
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1166,6 +1220,16 @@ body {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.43);
     z-index: 9;
+}
+
+#back_btn_levels {
+    background-image: url(grafik/tilbage_knap.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 14vw;
+    height: 14vw;
+    top: 27.2vw;
+    left: 53vw;
 }
 
 #luk {
@@ -1185,7 +1249,7 @@ body {
     background-image: url(grafik/forside.svg);
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 100vw;
+    height: 56.25vw;
     width: 100vw;
 
     position: absolute;
@@ -1194,7 +1258,7 @@ body {
 
 }
 
-#play_button {
+#play_btn {
     position: absolute;
     width: 25vw;
     height: 15vw;

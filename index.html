@@ -13,10 +13,6 @@
 
     <div id="screens">
         <div id="game_elements">
-
-
-
-
             <div id="tandboerste" class="plastic1 plastic"></div>
             <div id="tandboerste2" class="plastic2 plastic"></div>
             <div id="bag_left" class="plastic3 plastic"></div>
@@ -49,11 +45,11 @@
 
 
         <div id="game_ui">
-            <div id="points"></div>
-            <div id="energy"></div>
-            <div id="time"></div>
-            <div id="exit"></div>
-            <div id="life"></div>
+            <div id="points" class="hide"></div>
+            <div id="air" class="hide"></div>
+            <div id="time" class="hide"></div>
+            <div id="exit" class="hide"></div>
+            <div id="life" class="hide"></div>
             <div id="settings" class="hide"></div>
 
             <div id="music_turnoff_knap" class="hide"></div>
@@ -61,17 +57,25 @@
             <div id="sfx_turnoff_knap" class="hide"></div>
             <div id="sfx_turnon_knap" class="hide"></div>
 
+            <div id="energy" class="hide">
+                <div id="heart1" class="heart"></div>
+                <div id="heart2" class="heart"></div>
+                <div id="heart3" class="heart"></div>
+            </div>
+
             <div id="back" class="hide">gå tilbage</div>
+            <div id="back_btn_levels" class="hide"></div>
 
         </div>
 
         <div id="start" class="hide"></div>
-        <div id="play_button" class="hide"></div>
+        <div id="play_btn" class="hide"></div>
 
+
+        <div id="settings_button"></div>
+        <div id="score" class="hide"></div>
         <div id="gameover" class="hide"></div>
         <div id="levelcomplete" class="hide"></div>
-        <div id="settings_button"></div>
-        <div id="score"></div>
     </div>
     <script src="script.js"></script>
 </body>
